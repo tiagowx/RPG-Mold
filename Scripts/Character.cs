@@ -9,9 +9,10 @@ public class Character : MonoBehaviour {
     [Header("Status")]
     public Status status;
 
+    public GameObject CharacterStatus;
+
     [Header("Ferramentas de Hud")]
     public Button[] attributesButtons;
-
 
     public void StatusRefresh() {
         if(status.experience.statusPoints > 0)
@@ -56,6 +57,10 @@ public class Character : MonoBehaviour {
         StatusRefresh();
     }
 
+    public void ShowWindow()
+    {
+        CharacterStatus.SetActive(!CharacterStatus.activeSelf);
+    }
 
     // Use this for initialization
     void Start ()
@@ -76,4 +81,6 @@ public class Character : MonoBehaviour {
 
 
     }
+
+
 }
