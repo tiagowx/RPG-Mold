@@ -38,8 +38,17 @@ public class GameController : MonoBehaviour {
     public float fightTime;
     public float endTime;
 
-    
-
+    public GameObject HUDStatus;
+    public GameObject StatusTitle;
+    public Vector3 vt1;
+    public Vector3 vt2;
+    public void HUDTransform () {
+        vt1 = HUDStatus.transform.position;
+        vt2 = Input.mousePosition;
+        Vector3 v = new Vector3(0,0,0);
+        v = Input.mousePosition - StatusTitle.transform.position;
+        HUDStatus.transform.position += v;
+    }
 
 
     public void FightBattle()
