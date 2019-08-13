@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SkillSystem : MonoBehaviour {
+public class SkillSystem {
+    [System.Serializable]
     public enum SkillType
     {
-        ATTACK, BUFF, DEBUFF, HEAL, SPELL, SUMMON
+        ATTACK, BUFF, DEBUFF, EMPTY, HEAL, INSTINCT, SKILL, SPELL, SUMMON, ULTIMATE
     }
-        public GameObject enemy;
+
+    [System.Serializable]
     public class Skill
     {
         //Social Imfo
@@ -21,51 +23,12 @@ public class SkillSystem : MonoBehaviour {
         //Dano Aplicado
         public int pDamege;
         public int mDamege;
-        //buff/debuff stats
+        /*buff/debuff stats
         public int buffTime;
         public int stackLimit;
         public int slowValue;
         public int bleedValue;
-        public int poisonValue;
-        public Status enemy;
-        public void Action()
-        {
-            switch(skillType)
-            {
-                case SkillType.ATTACK: {
-                        
-                    }break;
-                case SkillType.BUFF: {
-
-                    }
-                    break;
-                case SkillType.DEBUFF: {
-
-                    }
-                    break;
-                case SkillType.HEAL: {
-
-                    }
-                    break;
-                case SkillType.SPELL: {
-
-                    }
-                    break;
-                case SkillType.SUMMON: {
-
-                    }
-                    break;
-            }
-        }
+        public int poisonValue;*/
     }
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }

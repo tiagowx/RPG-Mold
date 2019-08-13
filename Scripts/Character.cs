@@ -9,6 +9,8 @@ public class Character : MonoBehaviour {
     [Header("Status")]
     public Status status;
 
+    public static BattleSystem.Action[] actionsOrderList;
+
     public GameObject CharacterStatus;
 
     [Header("Ferramentas de Hud")]
@@ -66,14 +68,6 @@ public class Character : MonoBehaviour {
     void Start ()
     {
         
-        StatusRefresh();
-        status.battle.RestoreFullHP();
-        status.battle.RestoreFullMP();
-        StatusRefresh();
-        status.battle.health.ReceiveDamage(status.battle.physical.strength.pAttack, status.battle.physical.constituition.pDefence);
-        status.battle.mana.ManaConsumption(10);
-        status.experience.ReceiveExperience(5000);
-        StatusRefresh();
     }
 
     // Update is called once per frame

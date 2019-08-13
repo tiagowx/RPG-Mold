@@ -51,14 +51,9 @@ public class GameController : MonoBehaviour {
     }
 
 
-    public void FightBattle()
-    {
-        
-    }
-
 	// Use this for initialization
 	void Start () {
-		
+		gameStatus = GameStatus.BATTLE;
 	}
 	
 	// Update is called once per frame
