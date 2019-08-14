@@ -66,8 +66,9 @@ public class Character : MonoBehaviour {
 
     // Use this for initialization
     void Start ()
-    {
-        
+    {   
+        StatusRefresh();
+        status.experience.ReceiveExperience(5000);
     }
 
     // Update is called once per frame

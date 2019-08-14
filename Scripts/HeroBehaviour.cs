@@ -23,31 +23,36 @@ public class HeroBehaviour : MonoBehaviour
     public GameObject[] ActionSelected;
 
     public void SelectAction (string s) {
+        if(gameObject.name == gameObject.name+"(Clone)") {                
+            DestroyImmediate(gameObject);
+            return;
+        }
         for (int i = 0; i < 10; i++)
         {
-            if(ActionSelected[i] == null)
+            if(ActionSelected[i] == null){             
                 switch(s){
                     case "ATTACK":{
-                            ActionSelected[i] = ActionUp[0];
-                            ActionUp[1].SetActive(false);
+                        ActionSelected[i] = ActionUp[0];
+                        ActionUp[0].SetActive(false);
                     }break;
                     case "INSTINCT":{
-                            ActionSelected[i] = ActionUp[1];
-                            ActionUp[1].SetActive(false);   
+                        ActionSelected[i] = ActionUp[1];
+                        ActionUp[1].SetActive(false);
                     }break;
                     case "SKILL":{
-                            ActionSelected[i] = ActionUp[2];
-                            ActionUp[1].SetActive(false);  
+                        ActionSelected[i] = ActionUp[2];
+                        ActionUp[2].SetActive(false);
                     }break;
                     case "ULTIMATE":{
-                            ActionSelected[i] = ActionUp[3];
-                            ActionUp[1].SetActive(false);  
+                        ActionSelected[i] = ActionUp[3];
+                        ActionUp[3].SetActive(false);
                     }break;
                 }
+                return;
+            }
         }
 
     }
-
 
     // Start is called before the first frame update
     void Start()

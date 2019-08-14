@@ -161,7 +161,7 @@ public class Status
                 public Text txtSTR;
                 public int pAttack { get; private set; }
                 public Text txtPAttack;
-                private int pCritical;
+                public int pCritical { get; private set; }
                 public Text txtPCritical;
                 public void AddPoint() { STR++; }
                 public void SetStartPoints(int n) { STR = n; }
@@ -188,7 +188,7 @@ public class Status
                 public Text txtMaxHP;
                 public int pDefence { get; private set; }
                 public Text txtPDefence;
-                private float blockChance;
+                public float blockChance{ get; private set; }
                 public Text txtBlockChance;
                 private float determination;
                 public Text txtDetermination;
@@ -223,7 +223,7 @@ public class Status
                 public Text txtAtkSpeed;
                 private int speed;
                 public Text txtSpeed;
-                private float criticalChance;
+                public float criticalChance{ get; private set; }
                 public Text txtCriticalChance;
                 private float malice;
                 public Text txtMalice;
