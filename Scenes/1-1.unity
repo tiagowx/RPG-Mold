@@ -774,6 +774,7 @@ MonoBehaviour:
     hpCost: 0
     pDamege: 0
     mDamege: 0
+    block: 0
     buffTime: 0
     stackLimit: 0
     slowValue: 0
@@ -788,6 +789,7 @@ MonoBehaviour:
     hpCost: 0
     pDamege: 0
     mDamege: 0
+    block: 0
     buffTime: 0
     stackLimit: 0
     slowValue: 0
@@ -802,6 +804,7 @@ MonoBehaviour:
     hpCost: 0
     pDamege: 0
     mDamege: 0
+    block: 0
     buffTime: 0
     stackLimit: 0
     slowValue: 0
@@ -816,6 +819,7 @@ MonoBehaviour:
     hpCost: 0
     pDamege: 0
     mDamege: 0
+    block: 0
     buffTime: 0
     stackLimit: 0
     slowValue: 0
@@ -987,6 +991,7 @@ MonoBehaviour:
     hpCost: 0
     pDamege: 0
     mDamege: 0
+    block: 0
     buffTime: 0
     stackLimit: 0
     slowValue: 0
@@ -1001,6 +1006,7 @@ MonoBehaviour:
     hpCost: 0
     pDamege: 0
     mDamege: 0
+    block: 0
     buffTime: 0
     stackLimit: 0
     slowValue: 0
@@ -1015,6 +1021,7 @@ MonoBehaviour:
     hpCost: 0
     pDamege: 0
     mDamege: 0
+    block: 0
     buffTime: 0
     stackLimit: 0
     slowValue: 0
@@ -1029,6 +1036,7 @@ MonoBehaviour:
     hpCost: 0
     pDamege: 0
     mDamege: 0
+    block: 0
     buffTime: 0
     stackLimit: 0
     slowValue: 0
@@ -2563,6 +2571,7 @@ MonoBehaviour:
     hpCost: 0
     pDamege: 0
     mDamege: 0
+    block: 0
     buffTime: 0
     stackLimit: 0
     slowValue: 0
@@ -2577,6 +2586,7 @@ MonoBehaviour:
     hpCost: 0
     pDamege: 0
     mDamege: 0
+    block: 0
     buffTime: 0
     stackLimit: 0
     slowValue: 0
@@ -2591,6 +2601,7 @@ MonoBehaviour:
     hpCost: 0
     pDamege: 0
     mDamege: 0
+    block: 0
     buffTime: 0
     stackLimit: 0
     slowValue: 0
@@ -2605,6 +2616,7 @@ MonoBehaviour:
     hpCost: 0
     pDamege: 0
     mDamege: 0
+    block: 0
     buffTime: 0
     stackLimit: 0
     slowValue: 0
@@ -5628,7 +5640,7 @@ PrefabInstance:
     - target: {fileID: 114157880575775036, guid: e1f188b087f8d094fb29a9ddad5552ce,
         type: 3}
       propertyPath: status.social.baseClass
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114157880575775036, guid: e1f188b087f8d094fb29a9ddad5552ce,
         type: 3}
