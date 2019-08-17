@@ -11,6 +11,14 @@ public class BattleSystem : MonoBehaviour
     }
     public static BattleStatus currentStatus;
 
+    public class Battle {
+        public int id;
+        public string fieldBattle;
+        public int turn;
+        public float timer;
+    }
+    public static Battle battle;
+
     [System.Serializable]
     public class Action {
         public GameObject from;

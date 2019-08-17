@@ -27,7 +27,7 @@ public class SkillSystem : MonoBehaviour{
         public int pDamege;
         public int mDamege;
         
-        // buff/debuff stats
+        // buff/debuff
         public bool block;
         public int buffTime;
         public int stackLimit;
@@ -41,9 +41,6 @@ public class SkillSystem : MonoBehaviour{
     public Skill WarriorAttack(Character c) {
         s = null;
         s.name = "Warrior of Attack";
-        s.description = "O Guerreiro avança com sua espada causando " + 
-                        s.pDamege + 
-                        " de dano. Possibilidade de dano crítico";
         s.skillType = SkillType.ATTACK;
         s.isAvailable = true;
         s.timeCost = 1;
@@ -51,6 +48,9 @@ public class SkillSystem : MonoBehaviour{
             s.pDamege = c.status.battle.physical.strength.pCritical;
         else 
             s.pDamege = c.status.battle.physical.strength.pAttack;
+        s.description = "O Guerreiro avança com sua espada causando " + 
+                        s.pDamege + 
+                        " de dano. Possibilidade de dano crítico";
 
         return s;
     }
@@ -73,22 +73,48 @@ public class SkillSystem : MonoBehaviour{
 
     public Skill WarriorSkill(Character c) {
         s = null;
-        s.name = "Counterattack";
-        s.description = "Força adiversário a ataca-lo, redusindo o dano recebido em " + 
-                        c.status.battle.physical.constituition.blockChance*100 + 
-                        "% e devolvendo " +
-                        c.status.battle.physical.strength.pCritical + 
-                        " de dano físico ao adversário.";
         s.skillType = SkillType.SKILL;
+        s.name = "Fraturar";
         s.isAvailable = true;
         s.timeCost = 2;
+
         if(Random.Range(0,1) < c.status.battle.physical.constituition.blockChance)
             s.pDamege = c.status.battle.physical.strength.pCritical + c.status.battle.physical.strength.pAttack;
         else 
             s.pDamege = c.status.battle.physical.strength.pCritical;
 
+        s.description = "Força adiversário a ataca-lo, redusindo o dano recebido em " + 
+                        c.status.battle.physical.constituition.blockChance*100 + 
+                        "% e devolvendo " +
+                        c.status.battle.physical.strength.pCritical + 
+                        " de dano físico ao adversário.";
+
         return s;
     }
     
+    public Skill WarriorUltimate (Character c) {
+        s = null;
+        s.skillType = SkillType.ULTIMATE;
+        s.name = "Twist of Rage";
+        s.timeCost = 4;
+        
+        if(s.timeCost >= BattleSystem.battle.turn)
+            s.isAvailable = true;
+        else
+            s.isAvailable = false;
 
+        if(Random.Range(0,1) < c.status.battle.physical.dexterity.criticalChance)           
+            s.pDamege = c.status.battle.physical.strength.pCritical;
+        else 
+            s.pDamege = c.status.battle.physical.strength.pAttack;
+
+        s.description = "Gira a espada 3 vezes causando " + 
+                        s.pDamege +
+                        " de dano em cada giro aos adgersários proximos.";
+
+        return s;
+    }
+
+    //tools
+    
 }
