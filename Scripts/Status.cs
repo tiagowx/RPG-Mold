@@ -107,11 +107,11 @@ public class Status
             public HorizontalLayoutGroup barHp;
             public void HealDamage(int heal) { hp += heal; }
             public void SetHealth(int newHP) { hp = newHP; }
-            public void ReceiveDamage(int grossDamage, int reductions)
+            public int ReceiveDamage(int grossDamage, int reductions)
             {
                 hp -= grossDamage - reductions;
                 Debug.Log("recebeu " + (grossDamage - reductions));
-                //return grossDamage - reductions;
+                return grossDamage - reductions;
             }
             public void StartHealth(int maxHp)
             {

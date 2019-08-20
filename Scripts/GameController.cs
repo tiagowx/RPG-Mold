@@ -14,11 +14,11 @@ public class GameController : MonoBehaviour {
     {
         switch (toState)
         {
-            case "adventure":   gameStatus = GameStatus.ADVENTURE;  break;
-            case "battle":      gameStatus = GameStatus.BATTLE;     break;
-            case "loading":     gameStatus = GameStatus.LOADING;    break;
-            case "menu":        gameStatus = GameStatus.MENU;       break;
-            case "start":       gameStatus = GameStatus.START;      break;
+            case "adventure":   GameStatus1 = GameStatus.ADVENTURE;  break;
+            case "battle":      GameStatus1 = GameStatus.BATTLE;     break;
+            case "loading":     GameStatus1 = GameStatus.LOADING;    break;
+            case "menu":        GameStatus1 = GameStatus.MENU;       break;
+            case "start":       GameStatus1 = GameStatus.START;      break;
         }
     }
 
@@ -42,6 +42,9 @@ public class GameController : MonoBehaviour {
     public GameObject StatusTitle;
     public Vector3 vt1;
     public Vector3 vt2;
+
+    private static GameStatus GameStatus1 { get => gameStatus; set => gameStatus = value; }
+
     public void HUDTransform () {
         vt1 = HUDStatus.transform.position;
         vt2 = Input.mousePosition;
@@ -53,7 +56,7 @@ public class GameController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		gameStatus = GameStatus.BATTLE;
+		ChangeGameStatus("battle");
 	}
 	
 	// Update is called once per frame

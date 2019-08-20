@@ -9,7 +9,7 @@ public class BattleSystem : MonoBehaviour
     public enum BattleStatus{
         PEACE, ACTIONSELLECT, TARGETSELLECT, BATTLE
     }
-    public static BattleStatus currentStatus;
+    public BattleStatus currentStatus;
 
     public class Battle {
         public int id;
@@ -28,17 +28,28 @@ public class BattleSystem : MonoBehaviour
         public string message;
     }
     public static Action action;
-    public static Action[] timeLine;
+    
+    public static Component[] timeLine;
+
+    public GameObject timeline;
 
     public int turn = 10;
     public Text consoleMessage;
    
     public void GetAction () {
         for(int i = 0; i > turn; i++){
-
         }
     } 
 
+    public int t;
 
+    void Start() {
+        currentStatus = BattleStatus.ACTIONSELLECT;
+    }
+
+    void Update(){
+        timeLine = timeline.GetComponentsInChildren<Button>();
+        t = timeLine.Length;
+    }
 
 }

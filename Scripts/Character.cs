@@ -8,6 +8,7 @@ public class Character : MonoBehaviour {
     public enum BaseClass {WARRIOR, PALADIN, HUNTER, MAGE, DRUID, CLARIG }
     [Header("Status")]
     public Status status;
+    public SkillSystem.Skill[] skills;
 
     public static BattleSystem.Action[] actionsOrderList;
 

@@ -16,6 +16,9 @@ public class SkillSystem : MonoBehaviour{
         public string name;
         public string description;
         public SkillType skillType;
+        public Character me;
+        public Character target;
+
 
         //Custos e disponibilidade
         public bool isAvailable = false;
@@ -34,6 +37,24 @@ public class SkillSystem : MonoBehaviour{
         public int slowValue;
         public int bleedValue;
         public int poisonValue;
+
+        public string Aply(string s) {
+            switch(s){
+                case "pdamage": {
+                    int a = target.status.battle.health.ReceiveDamage(
+                        target.status.battle.physical.strength.pAttack,
+                        me.status.battle.physical.constituition.pDefence);
+                    return 
+                        target.status.social.txtCharName.text + 
+                        " causou " + a + " de dano em " +
+                        me.status.social.txtCharName.text;
+                } 
+                case "cdamage": {
+
+                } break;
+            }
+            return "Nenhuma ação ocorrida";
+        }
     }
     public Skill[] skills;
         Skill s;
@@ -51,10 +72,10 @@ public class SkillSystem : MonoBehaviour{
         s.description = "O Guerreiro avança com sua espada causando " + 
                         s.pDamege + 
                         " de dano. Possibilidade de dano crítico";
-
+        s.Aply("p.Damege");
         return s;
     }
-    public Skill WarriorInstinct(Character c) {
+    public Skill WarriorInstinct(Character c, Character t) {
         s = null;
         s.name = "Instinct of Warrior";
         s.description = "Força adiversário a ataca-lo, cedendo prioridade de ataque no início do turno." + 
@@ -70,7 +91,6 @@ public class SkillSystem : MonoBehaviour{
 
         return s;
     }
-
     public Skill WarriorSkill(Character c) {
         s = null;
         s.skillType = SkillType.SKILL;
@@ -78,7 +98,7 @@ public class SkillSystem : MonoBehaviour{
         s.isAvailable = true;
         s.timeCost = 2;
 
-        if(Random.Range(0,1) < c.status.battle.physical.constituition.blockChance)
+        if(Random.Range(0,1) < c.status.battle.physical.dexterity.criticalChance)
             s.pDamege = c.status.battle.physical.strength.pCritical + c.status.battle.physical.strength.pAttack;
         else 
             s.pDamege = c.status.battle.physical.strength.pCritical;
@@ -90,8 +110,7 @@ public class SkillSystem : MonoBehaviour{
                         " de dano físico ao adversário.";
 
         return s;
-    }
-    
+    }    
     public Skill WarriorUltimate (Character c) {
         s = null;
         s.skillType = SkillType.ULTIMATE;
@@ -111,10 +130,9 @@ public class SkillSystem : MonoBehaviour{
         s.description = "Gira a espada 3 vezes causando " + 
                         s.pDamege +
                         " de dano em cada giro aos adgersários proximos.";
-
+        
         return s;
     }
 
-    //tools
     
 }
