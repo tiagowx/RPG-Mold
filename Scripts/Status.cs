@@ -10,6 +10,13 @@ public enum BaseClass { WARRIOR, PALADIN, HUNTER, MAGE, DRUID, CLARIG }
 [System.Serializable]
 public class Status
 {
+    public GameObject heroStatus;
+
+    public void ShowStatus()
+    {
+        heroStatus.SetActive(!heroStatus.activeSelf);
+    }
+
     [System.Serializable]
     public class Social
     {
@@ -355,6 +362,7 @@ public class Status
 
         public void SetStartClassStatus(BaseClass b)
         {
+            
             switch (b)
             {
                 case BaseClass.WARRIOR:
@@ -416,7 +424,7 @@ public class Status
                         magical.mentality.SetStartPoints(8);
                         magical.wit.SetStartPoints(5);
                     }
-                    break;
+                    break; 
             }
         }
     }

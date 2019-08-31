@@ -5,27 +5,46 @@ using UnityEngine.UI;
 
 public class ActionBerraviour : MonoBehaviour
 {
-    public void AutoDestroy(HeroBehaviour hero) {
-        if(gameObject.transform.parent.name == "Timeline"){
-            
-            string s = gameObject.name;
-            switch(s){
-                case "ATTK(Clone)":{
-                    ++hero.times;
-                }break;
-                case "INST(Clone)":{
-                    ++hero.times;
-                }break;
-                case "SKL(Clone)":{
-                    hero.times += 2;
-                }break;
-                case "ULT(Clone)":{
-                    hero.times += 3;
-                }break;
-            }
-            Debug.Log(s + " foi devolvido");
-            Destroy(gameObject);
+    
+
+    public Target target;
+
+    public TeamStatus team;
+
+    public Timeline from;
+
+    void Start () {
+        team = transform.parent.transform.parent.GetComponent<TeamStatus>();
+        from = transform.parent.GetComponent<Timeline>();
+    }
+    
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            collision.gameObject.SendMessage("ApplyDamage", 10);
         }
     }
+    public Vector3 deltaPosition; 
+    void Update () {
+        
+        if(target != null){
+        deltaPosition = transform.position - target.transform.position;
+            if ((BattleSystem.currentStatus == BattleSystem.BattleStatus.FIGHT) && 
+                (gameObject.transform.parent.name == "Timeline"))
+                {
+                    transform.Translate(-(transform.position-target.transform.position)*(5.0f*Time.deltaTime),
+                    target.transform);
+                    if ((deltaPosition.x > -1)&&(deltaPosition.y > -1)){
+                        BattleSystem.currentStatus = BattleSystem.BattleStatus.ACTIONSELLECT;
+                        team.GetComponent<PlayerBehaviour>().RemoveAction(gameObject);
+                        Destroy(gameObject);
+                    }
+                }
+
+               
+        }
+    }
+    
     
 }
